@@ -21,7 +21,8 @@ from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_community.vectorstores import FAISS
 # from langchain_community.retrievers.multi_query import MultiQueryRetriever
-from langchain.retrievers.multi_query import MultiQueryRetriever
+from langchain_community.retrievers import MultiQueryRetriever
+
 
 
 # Import Utility Libraries for S3 Storage and Pinecone Learning
