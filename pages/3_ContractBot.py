@@ -15,9 +15,28 @@ from pinecone import Pinecone
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 # from langchain.retrievers import EnsembleRetriever
-from langchain_community.retrievers.ensemble import EnsembleRetriever
 # from langchain.schema import HumanMessage, AIMessage, SystemMessage
 from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
+
+class SimpleEnsembleRetriever:
+    def __init__(self, retrievers, weights=None):
+        self.retrievers = retrievers
+        self.weights = weights or [1.0] * len(retrievers)
+
+    def get_relevant_documents(self, query: str):
+        # Collect docs with weights
+        scored = []
+        for w, r in zip(self.weights, self.retrievers):
+            docs = r.get_relevant_documents(query)
+            for d in docs:
+                scored.append((w, d))
+
+        # Sort by weight (highest first)
+        scored.sort(key=lambda x: -x[0])
+
+        # Return only the documents
+        return [d for _, d in scored]
+
 
 
 # Page Setting
@@ -154,7 +173,9 @@ if retrievers:
     if len(retrievers) == 1:
         combo_retriever = retrievers[0]
     else:
-        combo_retriever = EnsembleRetriever(retrievers=retrievers, weights=[1.0] * len(retrievers))
+        # combo_retriever = EnsembleRetriever(retrievers=retrievers, weights=[1.0] * len(retrievers))
+        combo_retriever = SimpleEnsembleRetriever(retrievers=retrievers, weights=[1.0] * len(retrievers))
+
 
 # System Promopt and RAG Workflow
 SYSTEM_PROMPT = (
