@@ -17,7 +17,8 @@ from text_splitter import smart_split
 
 # LangChain, spaCy (enables language detection and precise extraction)
 from langchain_openai import ChatOpenAI
-from langchain.prompts import PromptTemplate
+# from langchain.prompts import PromptTemplate
+from langchain_core.prompts import PromptTemplate
 from langchain.schema.output_parser import StrOutputParser
 import spacy
 
