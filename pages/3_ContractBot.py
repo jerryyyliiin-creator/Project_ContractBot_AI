@@ -16,7 +16,7 @@ from langchain_community.document_loaders import PyPDFLoader
 # from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 # from langchain.retrievers import EnsembleRetriever
-from langchain_community.retrievers import EnsembleRetriever
+from langchain_community.retrievers.ensemble import EnsembleRetriever
 from langchain.schema import HumanMessage, AIMessage, SystemMessage
 
 # Page Setting
