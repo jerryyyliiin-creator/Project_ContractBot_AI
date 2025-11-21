@@ -240,7 +240,7 @@ def draw_main_app():
         <div class="hero-wrap">
         <span class="kicker">Beta Version Private Preview - Version 1.2</span> 
             <h1 class="hero">Accelerate Contract Analysis with Innovative Turbocharged AI</h1>
-        <p class="sub">Upload Comparison Baseline ➝ Upload for Review ➝ Render real-time differences, clause risks, and revision suggestions.</p>
+        <p class="sub">Upload Comparison Baseline ➝ Upload for Review ➝ Render Differences, Clause Risks, and Revision Suggestions.</p>
         </div>
         """, unsafe_allow_html=True)
 
