@@ -177,8 +177,7 @@ The application will open in your local browser (most likely `http://localhost:8
     -   The system will automatically list all high- and medium-risk clauses and provide a downloadable PDF file with key highlights.
 
 ## Streamlit Community Cloud Link
-https://project-contractbot.streamlit.app/
-
+[https://project-contractbot.streamlit.app/](https://projectcontractbotai-6pwpf2ag5ngaefdjoaqsdf.streamlit.app/)
 
 ## Licensing
 
