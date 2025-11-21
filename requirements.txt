@@ -1,25 +1,46 @@
-streamlit
-streamlit-option-menu
-python-dotenv
-langchain
-langchain-openai
-pinecone
-langchain-pinecone
-langchain-community
-lxml
-python-docx
-unstructured[docx,pdf]
-faiss-cpu
-tiktoken
-pandas
-boto3
-reportlab
-PyPDF2
-openai
-pydantic
-pymupdf
-semantic-text-splitter
-spacy
-
 # python -m spacy download zh_core_web_sm
 # python -m spacy download en_core_web_sm
+
+# --- Streamlit ---
+streamlit
+streamlit-option-menu
+
+# --- Environment ---
+python-dotenv
+
+# --- LangChain (split packages, REQUIRED) ---
+langchain-core
+langchain-community
+langchain-openai
+langchain-text-splitters
+langchain-pinecone
+
+# --- Pinecone ---
+pinecone-client
+
+# --- Vector stores ---
+faiss-cpu
+
+# --- Text processing / splitting ---
+semantic-text-splitter
+
+# --- PDF + Document Loaders ---
+pymupdf
+PyPDF2
+unstructured[docx,pdf]
+python-docx
+lxml
+
+# --- AI Model + embeddings ---
+openai
+tiktoken
+
+# --- Data ---
+pandas
+
+# --- Utilities ---
+boto3
+pydantic
+
+# --- NLP ---
+spacy
