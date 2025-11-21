@@ -5,10 +5,13 @@ from dotenv import load_dotenv
 
 # LangChain
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
-from langchain.document_loaders import PyPDFLoader
+#from langchain.document_loaders import PyPDFLoader
+from langchain_community.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.prompts import PromptTemplate
-from langchain.schema.output_parser import StrOutputParser
+#from langchain.prompts import PromptTemplate
+from langchain_core.prompts import PromptTemplate
+#from langchain.schema.output_parser import StrOutputParser
+from langchain_core.output_parsers import StrOutputParser
 from langchain_community.vectorstores import FAISS
 from langchain_pinecone import PineconeVectorStore
 from pinecone import Pinecone
