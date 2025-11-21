@@ -21,8 +21,8 @@ from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_community.vectorstores import FAISS
 # from langchain_community.retrievers.multi_query import MultiQueryRetriever
-from langchain_community.retrievers import MultiQueryRetriever
-
+from langchain.retrievers import ContextualCompressionRetriever
+from langchain.retrievers.document_compressors import LLMChainExtractor
 
 
 # Import Utility Libraries for S3 Storage and Pinecone Learning
@@ -118,8 +118,19 @@ def run_comparison(template_retriever, uploaded_retriever, review_points, temper
     detailed_results = {}
     progress = st.progress(0, text="Conducting in-depth contract review....")
 
-    mq_template_retriever = MultiQueryRetriever.from_llm(retriever=template_retriever, llm=llm)
-    mq_uploaded_retriever = MultiQueryRetriever.from_llm(retriever=uploaded_retriever, llm=llm)
+    # mq_template_retriever = MultiQueryRetriever.from_llm(retriever=template_retriever, llm=llm)
+    # mq_uploaded_retriever = MultiQueryRetriever.from_llm(retriever=uploaded_retriever, llm=llm)
+
+    compressor = LLMChainExtractor.from_llm(llm)
+    mq_template_retriever = ContextualCompressionRetriever(
+        base_retriever=template_retriever,
+        base_compressor=compressor
+    )
+    mq_uploaded_retriever = ContextualCompressionRetriever(
+        base_retriever=uploaded_retriever,
+        base_compressor=compressor
+    )
+
     
     # Execute Analysis Loop
     for i, topic in enumerate(review_points):
