@@ -4,15 +4,6 @@ import streamlit as st
 from datetime import datetime
 from dotenv import load_dotenv
 
-# LangChain/Vector DB
-# from langchain_openai import ChatOpenAI, OpenAIEmbeddings
-# from langchain_community.document_loaders import PyPDFLoader, TextLoader
-# #from langchain.text_splitter import RecursiveCharacterTextSplitter
-# from langchain_text_splitters import RecursiveCharacterTextSplitter
-# from langchain.prompts import PromptTemplate
-# from langchain.schema.output_parser import StrOutputParser
-# from langchain_community.vectorstores import FAISS
-# from langchain.retrievers.multi_query import MultiQueryRetriever
 # LangChain / Vector DB
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_community.document_loaders import PyPDFLoader, TextLoader
@@ -20,10 +11,8 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_community.vectorstores import FAISS
-# from langchain_community.retrievers.multi_query import MultiQueryRetriever
 from langchain.retrievers import ContextualCompressionRetriever
 from langchain.retrievers.document_compressors import LLMChainExtractor
-
 
 # Import Utility Libraries for S3 Storage and Pinecone Learning
 import storage_utils as storage
