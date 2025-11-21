@@ -11,7 +11,8 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_community.vectorstores import FAISS
-from langchain.retrievers import ContextualCompressionRetriever
+# from langchain.retrievers import ContextualCompressionRetriever
+from langchain.retrievers.contextual_compression import ContextualCompressionRetriever
 from langchain.retrievers.document_compressors import LLMChainExtractor
 
 # Import Utility Libraries for S3 Storage and Pinecone Learning
